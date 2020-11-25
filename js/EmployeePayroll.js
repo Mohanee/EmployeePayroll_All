@@ -87,3 +87,22 @@ function getElementValueById(id){
     let value = document.getElementById(id).value
     return value;
 } 
+
+function resetForm(){
+    setValue('#name','');
+    setValue('#salary','');
+    setValue('#notes','');
+    setValue('#day','1');
+    setValue('#month','January');
+    setValue('#year','2020');
+    unsetSelectedValues('[name=profle]');
+    unsetSelectedValues('[name=gender]');
+    unsetSelectedValues('[name=department]');
+}
+
+function setValue(id,value){
+    document.querySelector(id).value = value;
+}
+function unsetSelectedValues(propertyValue){
+    document.querySelectorAll(propertyValue).forEach(item => item.checked=false);
+} 
