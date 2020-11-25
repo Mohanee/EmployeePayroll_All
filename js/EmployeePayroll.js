@@ -56,16 +56,17 @@ function createEmployeePayroll()
 //which will be stored into local storage of browser
 function updateLocalStorage(employeepayrollData)
 {
-    let empList = JSON.parse(localStorage.getItem("empList"));
-    if(empList!=undefined)
+    //let empList = JSON.parse(localStorage.getItem("empList"));
+    let employeePayrollList = JSON.parse(localStorage.getItem("employeePayrollList"));
+    if(employeePayrollList!=undefined)
     {
-        empList.push(employeepayrollData);
+        employeePayrollList.push(employeepayrollData);
     }
     else{
-        empList=[employeepayrollData];
+        employeePayrollList=[employeepayrollData];
     }
     //alert(empList.toString());
-    localStorage.setItem("empList", JSON.stringify(empList));
+    localStorage.setItem("employeePayrollList", JSON.stringify(employeePayrollList));
 }
 
 function getSelectedValues(attribute)

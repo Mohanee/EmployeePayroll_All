@@ -1,10 +1,17 @@
+let employeePayrollList;
+
+//event listener to call inner html 
 window.addEventListener("DOMContentLoaded", (event) => {
+    employeePayrollList= getEmployeePayrollDataFromStorage();
+    document.querySelector(".emp-count").textContent= employeePayrollList.length;
     createInnerHtml();
 });
+
+//function to create inner HTML to store tabulated Employee Data
 const createInnerHtml = () => {
     const headerHtml = "<tr><th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th></tr>"
+    if(employeePayrollList.length == 0) return;    
         let innerHtml = `${headerHtml}`;
-            let employeePayrollList = createEmployeePayrollJSON();
             for (const employeePayrollData of employeePayrollList) {
                 innerHtml = `${innerHtml}
                 <tr>
@@ -23,6 +30,10 @@ const createInnerHtml = () => {
             }
             document.querySelector('#display').innerHTML = innerHtml
         }
+
+const getEmployeePayrollDataFromStorage = () => {
+            return localStorage.getItem('employeePayrollList')?JSON.parse(localStorage.getItem('employeePayrollList')):[];
+    }
 
  const createEmployeePayrollJSON = () => {
     let employeePayrollListLocal = [{
@@ -49,10 +60,10 @@ const createInnerHtml = () => {
     return employeePayrollListLocal;
 }
 
-        const getDeptHtml = (deptList) => {
-            let deptHtml = '';
-            for (const dept of deptList) {
-                deptHtml = `${deptHtml} <div class="dept-label">${dept}</div>`
-            }
-            return deptHtml;
-        }
+const getDeptHtml = (deptList) => {
+    let deptHtml = '';
+    for (const dept of deptList) {
+        deptHtml = `${deptHtml} <div class="dept-label">${dept}</div>`
+    }
+    return deptHtml;
+}
