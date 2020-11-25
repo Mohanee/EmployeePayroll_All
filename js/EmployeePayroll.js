@@ -23,7 +23,6 @@ window.addEventListener('DOMContentLoaded',(event)=>{
 
 function save(){
     try{    
-        //createEmployeePayroll();
         updateLocalStorage(createEmployeePayroll());
     }
     catch(e)
@@ -33,6 +32,8 @@ function save(){
     }
 }
 
+//function to create an employee payroll object
+// and store it into an employeePayroll array of objects
 let empPayroll = [];
 function createEmployeePayroll()
 {
@@ -51,6 +52,8 @@ function createEmployeePayroll()
     return employeepayrollData;
 }
 
+//Function to store every employee payroll object in a list
+//which will be stored into local storage of browser
 function updateLocalStorage(employeepayrollData)
 {
     let empList = JSON.parse(localStorage.getItem("empList"));
@@ -61,7 +64,7 @@ function updateLocalStorage(employeepayrollData)
     else{
         empList=[employeepayrollData];
     }
-    alert(empList.toString());
+    //alert(empList.toString());
     localStorage.setItem("empList", JSON.stringify(empList));
 }
 
