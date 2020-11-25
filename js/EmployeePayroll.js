@@ -1,7 +1,8 @@
 
-//event listening to display the salary on draging of salary range bar
+//setting event listening to display the salary on draging of salary range bar
 //and validating the given name
 window.addEventListener('DOMContentLoaded',(event)=>{
+
     const salary=document.querySelector('#salary');
     const output=document.querySelector('.salary-output');
     output.textContent=salary.value;
@@ -22,7 +23,8 @@ window.addEventListener('DOMContentLoaded',(event)=>{
 
 function save(){
     try{    
-        createEmployeePayroll();
+        //createEmployeePayroll();
+        updateLocalStorage(createEmployeePayroll());
     }
     catch(e)
     {
@@ -46,7 +48,23 @@ function createEmployeePayroll()
     empPayroll.push(employeepayrollData)
     alert("Your entry is successfully added");
     alert(empPayroll);
+    return employeepayrollData;
 }
+
+function updateLocalStorage(employeepayrollData)
+{
+    let empList = JSON.parse(localStorage.getItem("empList"));
+    if(empList!=undefined)
+    {
+        empList.push(employeepayrollData);
+    }
+    else{
+        empList=[employeepayrollData];
+    }
+    alert(empList.toString());
+    localStorage.setItem("empList", JSON.stringify(empList));
+}
+
 function getSelectedValues(attribute)
 {
     let allItems = document.querySelectorAll(attribute);
