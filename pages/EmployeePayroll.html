@@ -21,11 +21,11 @@
         <form class ="form" action="#" onsubmit="save(); return false">
             <div class="form-head"> Employee Payroll Form</div>
                 <div class="row-content">
-                <label class="label text" for="name"><strong>Name</strong></label>
+                <label class="label text" for="name"><strong>Name</strong></label>      <!--Name input field of type text-->
                 <input class="input" type="text" id="name" name="name" placeholder="Enter your name" required>
                 </div>
                 <div class ="row-content">
-                    <label class="label text" for="profile"><strong>Profile Image</strong></label>
+                    <label class="label text" for="profile"><strong>Profile Image</strong></label>      <!--Profile picture input field of type radio-->
                     <div class="profile-radio-content">
                         <label>
                         <input type="radio" id="profile1" name="profile" value="/assets/assets/profile-images/Ellipse -3.png" required>
@@ -44,6 +44,35 @@
                         <img class="profile" id="image4" src="../assets/profile-images/Ellipse -7.png">
                         </label>
                     </div>
+                </div>
+                <div class="row-content">
+                    <label class="label text" for="gender"><strong>Gender</strong></label>      <!--Gender input field of type radio-->
+                    <div>
+                        <input type="radio" id="male" name="gender" value="Male" required>
+                        <label class="text" for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="Female" required>
+                        <label class="text" for="female">Female</label>
+                    </div>
+                </div>
+                <div class="row-content">
+                    <label class="label text" for="department"><strong>Department</strong></label>          <!--Department Input field of type Checkbox-->
+                    <div>
+                        <input class="checkbox" type="checkbox" id="hr" name="department" value="HR">
+                        <label class="text" for="hr">HR</label>
+                        <input class="checkbox" type="checkbox" id="sales" name="department" value="Sales">
+                        <label class="text" for="sales">Sales</label>
+                        <input class="checkbox" type="checkbox" id="finance" name="department" value="Finance">
+                        <label class="text" for="finance">Finance</label>
+                        <input class="checkbox" type="checkbox" id="engineer" name="department" value="Engineer">
+                        <label class="text" for="er">Engineer</label>
+                        <input class="checkbox" type="checkbox" id="others" name="department" value="Others">
+                        <label class="text" for="others">Others</label>
+                    </div>
+                </div>
+                <div class="row-content">
+                    <label class="label text" for="salary"><strong>Salary</strong></label>                      <!--Salary input field of type Range bar-->
+                    <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
+                    <output class="salary-output text" for="salary">400000</output>
                 </div>
         </form>
     </div>
