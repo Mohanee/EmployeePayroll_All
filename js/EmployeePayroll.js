@@ -1,23 +1,24 @@
 
 //event listening to display the salary on draging of salary range bar
-const salary=document.querySelector('#salary');
-const output=document.querySelector('.salary-output');
-output.textContent=salary.value;
-salary.addEventListener('input',function(){
+//and validating the given name
+window.addEventListener('DOMContentLoaded',(event)=>{
+    const salary=document.querySelector('#salary');
+    const output=document.querySelector('.salary-output');
     output.textContent=salary.value;
-});
+    salary.addEventListener('input',function(){
+        output.textContent=salary.value;
+    });
 
-/*name validation
-const name = document.querySelector('#name');
-const nameError = document.querySelector('#name-error');
-name.addEventListener('input', function () {
-    let namRegex = new RegExp(/^[A-Z][a-z]{2,}$/);
-    if (namRegex.test(name.value))
-        nameError.textContent = "";
-    else
-        nameError.textContent = "Name is Incorrect";
+    const name = document.querySelector('#name');
+    const nameError = document.querySelector('#name-error');
+    name.addEventListener('input', function () {
+        let namRegex = new RegExp(/^[A-Z][a-z]{2,}$/);
+        if (namRegex.test(name.value))
+            nameError.textContent = "";
+        else
+            nameError.textContent = "Name is Incorrect";
+    });
 });
-*/
 
 function save(){
     try{    
@@ -43,7 +44,7 @@ function createEmployeePayroll()
     let date = getInputValueById('#year') + "-"+ getInputValueById('#month') + "/" + getInputValueById('#day');
     employeepayrollData.startDate = new Date(date);
     empPayroll.push(employeepayrollData)
-    alert("Your entry is successfully done");
+    alert("Your entry is successfully added");
     alert(empPayroll);
 }
 function getSelectedValues(attribute)
